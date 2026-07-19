@@ -56,6 +56,7 @@ Rhapsody 不会：
 ## 文档
 
 - [设计纲领](docs/DESIGN-BRIEF.md)
+- [视觉基底与设计语言](docs/VISUAL-DIRECTION.md)
 
 后续计划补充：
 
