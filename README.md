@@ -51,7 +51,7 @@ Rhapsody 不会：
 
 ## 当前阶段
 
-项目处于设计定稿阶段。设计纲领、视觉方向、序曲设计和工作区 V1 已完成；下一步优先把工作区语义令牌、页面骨架与 SillyTavern 接入映射转化为可运行的扩展代码。
+项目已完成设计定稿与实现前技术约束。设计纲领、视觉方向、序曲、工作区 V1、双主题令牌和 SillyTavern 适配规范均已完成；下一步进入扩展骨架与 CSS 主题实现。
 
 ## 文档
 
@@ -60,13 +60,12 @@ Rhapsody 不会：
 - [序曲意象与分镜定稿](docs/OVERTURE-CONCEPTS.md)
 - [序曲动效规范](docs/MOTION-SPEC.md)
 - [工作区视觉定稿 V1](docs/WORKSPACE-DIRECTION.md)
+- [设计令牌规范](docs/DESIGN-TOKENS.md)
+- [SillyTavern 适配规范](docs/SILLYTAVERN-ADAPTER.md)
 
 后续计划补充：
 
-- 可实现的双主题 CSS 令牌文件
-- SillyTavern 原生节点适配清单
 - 日常界面动效与交互规范
-- SillyTavern 适配与兼容规范
 - 性能和无障碍规范
 
 ## 开源说明
