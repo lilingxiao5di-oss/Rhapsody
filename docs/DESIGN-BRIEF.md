@@ -1,6 +1,6 @@
 # Rhapsody 设计纲领
 
-> 文档状态：Draft 0.1<br>
+> 文档状态：Approved 1.0（设计纲领定稿）<br>
 > 文档级别：最高设计约束<br>
 > 项目：Rhapsody · 狂想曲
 

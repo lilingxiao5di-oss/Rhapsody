@@ -1,62 +1,78 @@
-# Rhapsody Overture：首批意象设计稿
+# Rhapsody Overture V2：意象与分镜定稿
 
-## 1. 设计稿入口
+> 状态：序曲视觉设计 v1.0 定稿，等待前端原型实现
+> Figma：<https://www.figma.com/design/geCPu1HkkjPAmXA7AlqrJ9?node-id=36-7>
 
-- Figma：<https://www.figma.com/design/geCPu1HkkjPAmXA7AlqrJ9>
-- 文件名：`Rhapsody Overture — Motif Studies`
-- 本地概念图：`design-assets/overture-concepts/`
-- Figma 封面预览：`design-assets/figma-previews/cover.png`
+## 1. 当前结论
 
-Figma 文件采用两层结构：
+序曲完整参考 `Species in Pieces` 的动效语法：同一组碎片从加载状态出发，经错峰点亮、形态聚合、短暂停驻与再次分解，最后形成品牌入口。Rhapsody 不复制原项目的动物轮廓、原始多边形坐标、图片、字体、音频或业务实现。
 
-1. `_Image Imports` 保存 GPT-image-2 生成的六张原始关键帧与图像哈希；
-2. `Overture Studies` 使用可编辑文本、按钮、遮罩、分隔线和本地颜色变量重建产品界面层。
+当前版本不再使用随机意象池。每个主题只绑定一个固定意象：
 
-首轮画板包括：
+- **Nocturne — Moonlit Lyre / 月下琴弦**；
+- **Aubade — Aurora Fold / 曙光折幕**。
 
-- `00 — Cover / Overture Direction`
-- `01 — Motif Gallery`
-- `02 — Nocturne Entrance`
-- `03 — Aubade Entrance`
-- `04 — Sequence & Rules`
+此前生成的候选图、空心圆环稿和早期 Aubade 稿继续保存在素材目录与 Figma `_Image Imports` 页，但不再作为活动方案的设计依据。
 
-## 2. 已确认的序曲规则
+## 2. 点到圆盘加载器
 
-- 最终画面同时显示 `Rhapsody · 狂想曲` 与 `SillyTavern`；
-- 每次序曲只展示一个意象；
-- 只在当前主题候选池内随机选择；
-- 候选数大于一时尽量避免连续重复；
-- 使用 `sessionStorage`，每个浏览会话只自动出现一次；
-- 正常启动受会话标记约束，设置中心的主动预览不受约束；
-- 双标题形成后停留，等待点击、`Enter` 或 `Space`；
-- `Esc` 可以跳过视觉层，但不取消真实初始化任务。
+真实加载阶段采用“点 → 旋转 → 小圆盘”的结构：
 
-## 3. Nocturne 候选池
+1. 中央出现一个极小亮点；
+2. 亮点旋转并向外展开；
+3. 30 枚三角碎片沿顺时针方向错峰显现；
+4. 碎片最终组成一枚实心、克制的小圆盘；
+5. 只有 Rhapsody 核心初始化进入 `Ready` 后，圆盘才继续分解并进入后续意象。
 
-| ID | 意象 | 核心几何 | OGL 实现重点 |
-|---|---|---|---|
-| N01 | Moonlit Lyre / 月下琴弦 | 月弧、七道细线、碎片 | 共享碎片缓冲区；弧线与琴弦使用 line geometry |
-| N02 | Constellation Score / 星图乐谱 | 星点、五条断续路径、连接线 | 点精灵、折线路径、低频错峰点亮 |
-| N03 | Orphic Echo / 奥耳甫斯回声 | 三层中断圆环、重连波纹 | 圆弧分段、断点粒子、衰减拖尾 |
+圆盘不是空心圆环，也不使用与真实状态无关的假百分比。Figma Motion 原型时长为 3.2 秒，共包含 32 个动画节点：圆盘容器、30 枚碎片和起始光点。
 
-## 4. Aubade 候选池
+## 3. 八状态分镜
 
-| ID | 意象 | 核心几何 | OGL 实现重点 |
-|---|---|---|---|
-| A01 | Dawn Horizon / 黎明地平线 | 极细地平线、半圆柔光、尘埃 | 线段、径向渐变、稀疏粒子上浮 |
-| A02 | Golden Strings / 金色琴弦 | 七道竖线、上行光点、不完整弧线 | 线段亮度扫描、少量光点、低对比雾层 |
-| A03 | Morning Manuscript / 晨间手稿 | 两层纸面、断续谱线、斜向窗光 | 半透明平面、遮罩渐变、细线分解 |
+| 状态 | 名称 | 视觉职责 |
+|---|---|---|
+| 00 | Boot / Silent Field | 尽早覆盖画面，等待主题与控制器初始化 |
+| 01 | Real Load / Point-to-Disc | 用点到圆盘的碎片动画承接真实加载 |
+| 02 | Expansion | 小圆盘扩张，为诗句与意象变形释放空间 |
+| 03 | Four-Line Interlude | 四句短文本依次错峰出现 |
+| 04 | Motif Assembly | 30 枚碎片聚合为当前主题的固定意象 |
+| 05 | Theme Cadence | 意象停驻约 0.9 秒，形成一次视觉休止 |
+| 06 | Shard Wordmark Assembly | 碎片再次分解；`SILLY` 出现，30 枚碎片按每字母 5 枚组成 `TAVERN` |
+| 07 | Wait for Click | 显示进入按钮并等待点击、Enter 或 Space |
 
-## 5. 视觉分工
+最终点击后使用约 0.4 秒遮罩淡出，随后显露 SillyTavern 原生界面。`Esc` 可以跳过视觉层，但不能取消真实初始化。
 
-- GPT-image-2 只负责氛围、光、碎片密度和意象轮廓；
-- Figma 负责准确文字、双品牌层级、进入按钮、状态标注和布局；
-- CSS 负责静态背景、遮罩、排版、按钮与无障碍焦点；
-- OGL 负责碎片、线、粒子、光点与聚合/分解；
-- SillyTavern 原生 DOM 与接口保持不变。
+## 4. 两个固定意象
 
-这些位图是视觉方向稿，不应直接作为最终全屏背景依赖。正式实现应优先把可程序化部分还原为 OGL/CSS，并把图片保留为设计对照和降级预览。
+### Nocturne — Moonlit Lyre / 月下琴弦
 
-## 6. 首轮 Figma 状态
+- 月弧、七条细弦和约 30 枚夜蓝/柔紫碎片；
+- 只保留一枚低饱和旧金碎片作为节拍；
+- 神话仅通过“琴”“月弧”和遥远回声暗示，不出现人物或神像；
+- 运动更慢，余韵更长。
 
-封面、六意象画廊、Nocturne 入口与 Aubade 入口已经写入 Figma。`Sequence & Rules` 已写入规则说明、真实加载圆环和随机单意象两步；双标题与等待点击两张状态卡因 Figma Starter 方案的 MCP 调用额度在本轮耗尽而未写入，但其结构已经在本文件与 `VISUAL-DIRECTION.md` 中确定，后续额度恢复后可直接补完。
+### Aubade — Aurora Fold / 曙光折幕
+
+- 约 30 枚半透明碎片形成两至三条悬起的折叠光带；
+- 光带从极细地平线的单一接触点向右上方展开，保留大面积内部留白；
+- 使用冷晨灰背景、深板岩蓝、中间雾蓝、香槟金与象牙白高光，形成三档清晰明度；
+- 神话只以 Eos / Aurora “掀起晨光帷幕”作为远景隐喻，不出现人物、羽翼或具象神祇。
+
+## 5. 视觉与实现分工
+
+- GPT-image-2：只提供意象轮廓、碎片密度、光线与氛围对照；
+- Figma：分镜、可编辑标题、按钮、标注、主题令牌与 Motion 原型；
+- CSS / SVG：背景、排版、遮罩、按钮、降级静态帧；
+- JavaScript / OGL：碎片坐标、错峰显现、聚合/分解和运行时状态机；
+- SillyTavern：原生 DOM、接口、数据与事件语义保持不变。
+
+位图不作为插件运行时核心依赖。正式实现优先把意象还原为可程序化的 SVG/OGL 几何；位图仅用于设计对照与可选静态降级。
+
+## 6. 设计资产
+
+- 当前 V2 素材：`design-assets/overture-v2-inpieces-reference/`
+- Nocturne 当前意象：`04-nocturne-moonlit-lyre-assembly.png`
+- Aubade 当前意象：`07-aubade-aurora-fold-assembly.png`
+- 点到圆盘 Motion 导出：`figma-motion-point-to-disc.mp4`
+- Figma 截图核验：`figma-review/`
+
+更精确的时间、状态门控与降级规则见 [`MOTION-SPEC.md`](MOTION-SPEC.md)。

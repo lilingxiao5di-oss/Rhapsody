@@ -51,18 +51,20 @@ Rhapsody 不会：
 
 ## 当前阶段
 
-项目处于设计定义阶段。当前优先完成视觉纲领、设计系统、页面骨架和 SillyTavern 接入边界，再进入扩展实现。
+项目处于设计定义阶段。设计纲领、视觉方向与序曲设计已经作为 v1.0 定稿；下一步优先完成设计令牌、页面骨架和 SillyTavern 接入边界，再进入扩展实现。
 
 ## 文档
 
 - [设计纲领](docs/DESIGN-BRIEF.md)
 - [视觉基底与设计语言](docs/VISUAL-DIRECTION.md)
+- [序曲意象与分镜定稿](docs/OVERTURE-CONCEPTS.md)
+- [序曲动效规范](docs/MOTION-SPEC.md)
 
 后续计划补充：
 
 - 双主题设计令牌
 - 主聊天界面与设置中心页面骨架
-- 动效与交互规范
+- 日常界面动效与交互规范
 - SillyTavern 适配与兼容规范
 - 性能和无障碍规范
 
