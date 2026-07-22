@@ -1,0 +1,29 @@
+{
+  "runId": "rhapsody-workspace-v1-20260722",
+  "fileKey": "geCPu1HkkjPAmXA7AlqrJ9",
+  "pages": {
+    "cover": "67:2",
+    "gettingStarted": "67:3",
+    "foundations": "67:4",
+    "components": "67:6",
+    "screens": "67:8",
+    "utilities": "67:9"
+  },
+  "foundations": {
+    "workspaceColorsCollection": "VariableCollectionId:66:2",
+    "workspaceDimensionsCollection": "VariableCollectionId:66:3",
+    "foundationsFrame": "70:2"
+  },
+  "componentSets": {
+    "toolbarAction": "77:15",
+    "messageBlock": "78:18",
+    "settingsRow": "80:16"
+  },
+  "screens": {
+    "nocturneWelcome": "81:2",
+    "nocturneConversation": "81:3",
+    "settings": "81:4",
+    "aubadeWelcome": "81:5"
+  },
+  "referenceAsset": "design-assets/workspace-v1/nocturne-workspace-atmosphere-v1.png"
+}
