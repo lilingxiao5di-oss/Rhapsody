@@ -1,0 +1,86 @@
+<div id="rhapsody-settings" class="rhapsody-settings inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header">
+        <b>Rhapsody · 狂想曲</b>
+        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    </div>
+
+    <div class="inline-drawer-content rhapsody-settings__content">
+        <p class="rhapsody-settings__intro">
+            桌面端视觉扩展骨架。当前版本只建立主题状态、配置存储与兼容接入；工作区、OGL 和序曲由后续实现接入。
+        </p>
+
+        <div class="rhapsody-settings__group" role="group" aria-labelledby="rhapsody-general-title">
+            <h4 id="rhapsody-general-title">General</h4>
+
+            <label class="rhapsody-settings__row" for="rhapsody-enabled">
+                <span>
+                    <strong>启用视觉层</strong>
+                    <small>控制 Rhapsody 的总作用域，不会禁用插件设置本身。</small>
+                </span>
+                <input id="rhapsody-enabled" type="checkbox" data-rhapsody-setting="enabled">
+            </label>
+
+            <label class="rhapsody-settings__field" for="rhapsody-theme">
+                <span>主题</span>
+                <select id="rhapsody-theme" class="text_pole" data-rhapsody-setting="theme">
+                    <option value="nocturne">Nocturne · 夜曲</option>
+                    <option value="aubade">Aubade · 晨曲</option>
+                </select>
+            </label>
+
+            <label class="rhapsody-settings__row" for="rhapsody-native-bridge">
+                <span>
+                    <strong>原生主题桥接</strong>
+                    <small>把 Rhapsody 语义色映射给 SillyTavern SmartTheme 变量。</small>
+                </span>
+                <input id="rhapsody-native-bridge" type="checkbox" data-rhapsody-setting="nativeThemeBridge">
+            </label>
+        </div>
+
+        <div class="rhapsody-settings__group" role="group" aria-labelledby="rhapsody-motion-title">
+            <h4 id="rhapsody-motion-title">Motion & Environment</h4>
+
+            <label class="rhapsody-settings__field" for="rhapsody-motion">
+                <span>动态效果</span>
+                <select id="rhapsody-motion" class="text_pole" data-rhapsody-setting="motion.preference">
+                    <option value="system">跟随系统</option>
+                    <option value="full">完整</option>
+                    <option value="reduced">减少</option>
+                    <option value="off">关闭</option>
+                </select>
+            </label>
+
+            <label class="rhapsody-settings__row" for="rhapsody-environment">
+                <span>
+                    <strong>环境层</strong>
+                    <small>预留 OGL 环境控制器接口。</small>
+                </span>
+                <input id="rhapsody-environment" type="checkbox" data-rhapsody-setting="environment.enabled">
+            </label>
+
+            <label class="rhapsody-settings__row" for="rhapsody-parallax">
+                <span>
+                    <strong>鼠标视差</strong>
+                    <small>预留统一 RAF 指针阻尼接口。</small>
+                </span>
+                <input id="rhapsody-parallax" type="checkbox" data-rhapsody-setting="environment.parallax">
+            </label>
+
+            <label class="rhapsody-settings__row" for="rhapsody-overture">
+                <span>
+                    <strong>序曲</strong>
+                    <small>预留每个浏览器会话一次的序曲控制器接口。</small>
+                </span>
+                <input id="rhapsody-overture" type="checkbox" data-rhapsody-setting="overture.enabled">
+            </label>
+        </div>
+
+        <div class="rhapsody-settings__status" aria-live="polite">
+            <div>
+                <span data-rhapsody-status="core"></span>
+                <code>v<span data-rhapsody-status="version"></span></code>
+            </div>
+            <small data-rhapsody-status="details"></small>
+        </div>
+    </div>
+</div>

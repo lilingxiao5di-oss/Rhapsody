@@ -51,7 +51,9 @@ Rhapsody 不会：
 
 ## 当前阶段
 
-项目已完成设计定稿与实现前技术约束。设计纲领、视觉方向、序曲、工作区 V1、双主题令牌和 SillyTavern 适配规范均已完成；下一步进入扩展骨架与 CSS 主题实现。
+项目已完成设计定稿、实现前技术约束与最小可运行扩展骨架。当前仓库已经包含 SillyTavern manifest、原生 ESM 生命周期、设置持久化、兼容探测、双主题令牌入口和插件设置面板；下一步从工作区 CSS 与共享动画调度器开始实现正式视觉。
+
+后续主实现者请先阅读 [Kimi 创作与实现交接书](KIMI.md)。它说明了创作权限、不可突破的边界、本地素材库、参考项目、Figma、许可证注意事项以及无残留安装卸载契约。
 
 ## 文档
 
@@ -62,11 +64,14 @@ Rhapsody 不会：
 - [工作区视觉定稿 V1](docs/WORKSPACE-DIRECTION.md)
 - [设计令牌规范](docs/DESIGN-TOKENS.md)
 - [SillyTavern 适配规范](docs/SILLYTAVERN-ADAPTER.md)
+- [日常交互与动效规范](docs/INTERACTION-SPEC.md)
+- [性能与无障碍规范](docs/PERFORMANCE-ACCESSIBILITY.md)
+- [实现骨架交接说明](src/README.md)
+- [Kimi 创作与实现交接书](KIMI.md)
 
 后续计划补充：
 
-- 日常界面动效与交互规范
-- 性能和无障碍规范
+- 扩展实施计划与里程碑
 
 ## 开源说明
 

@@ -1,0 +1,126 @@
+body.rhapsody-enabled {
+    --rhapsody-spacing-01: 4px;
+    --rhapsody-spacing-02: 8px;
+    --rhapsody-spacing-03: 12px;
+    --rhapsody-spacing-04: 16px;
+    --rhapsody-spacing-06: 24px;
+    --rhapsody-spacing-08: 32px;
+
+    --rhapsody-radius-sm: 6px;
+    --rhapsody-radius-md: 10px;
+    --rhapsody-radius-lg: 14px;
+    --rhapsody-radius-xl: 18px;
+
+    --rhapsody-size-control-sm: 32px;
+    --rhapsody-size-control-md: 38px;
+    --rhapsody-size-sidebar: 248px;
+    --rhapsody-size-inspector: 288px;
+    --rhapsody-size-topbar: 52px;
+    --rhapsody-size-content-max: 1627px;
+    --rhapsody-size-reading-max: 760px;
+    --rhapsody-size-composer-max: 880px;
+
+    --rhapsody-font-family-ui: "Noto Sans SC", "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --rhapsody-font-family-poetic: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --rhapsody-font-family-mono: "Noto Sans Mono", "Cascadia Code", Consolas, monospace;
+
+    --rhapsody-font-size-meta: 12px;
+    --rhapsody-line-height-meta: 18px;
+    --rhapsody-font-size-ui: 13px;
+    --rhapsody-line-height-ui: 20px;
+    --rhapsody-font-size-body: 15px;
+    --rhapsody-line-height-body: 24px;
+    --rhapsody-font-size-title: 20px;
+    --rhapsody-line-height-title: 28px;
+    --rhapsody-font-size-display: 38px;
+    --rhapsody-line-height-display: 42px;
+    --rhapsody-font-size-quote: 20px;
+    --rhapsody-line-height-quote: 30px;
+
+    --rhapsody-duration-instant: 0ms;
+    --rhapsody-duration-press: 80ms;
+    --rhapsody-duration-fast: 125ms;
+    --rhapsody-duration-standard: 200ms;
+    --rhapsody-duration-structure: 280ms;
+    --rhapsody-duration-slow: 360ms;
+    --rhapsody-duration-theme: 420ms;
+    --rhapsody-duration-poetic: 700ms;
+    --rhapsody-duration-ambient: 800ms;
+
+    --rhapsody-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --rhapsody-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+    --rhapsody-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --rhapsody-ease-ambient: cubic-bezier(0.37, 0, 0.63, 1);
+
+    --rhapsody-environment-opacity: 0.34;
+    --rhapsody-environment-parallax-max: 6px;
+    --rhapsody-environment-dpr-max: 2;
+    --rhapsody-environment-particle-scale: 1;
+}
+
+body.rhapsody-enabled,
+body.rhapsody-enabled[data-rhapsody-theme="nocturne"] {
+    color-scheme: dark;
+    --rhapsody-color-canvas: #080a12;
+    --rhapsody-color-surface-root: #0d111b;
+    --rhapsody-color-surface-panel: #121827;
+    --rhapsody-color-surface-elevated: #182033;
+    --rhapsody-color-text-primary: #edf1fa;
+    --rhapsody-color-text-secondary: #a7b0c4;
+    --rhapsody-color-text-muted: #68738a;
+    --rhapsody-color-border-subtle: #20293a;
+    --rhapsody-color-border-strong: #35415a;
+    --rhapsody-color-accent-primary: #8e7cff;
+    --rhapsody-color-accent-secondary: #6aa8ff;
+    --rhapsody-color-accent-gold: #c8a96b;
+    --rhapsody-color-status-success: #78b8a1;
+    --rhapsody-color-overlay-dim: #080a12b8;
+    --rhapsody-color-selection-background: #8e7cff33;
+    --rhapsody-color-input-background: #0f1522;
+    --rhapsody-color-focus-ring: rgb(142 124 255 / 36%);
+    --rhapsody-color-hover: rgb(142 124 255 / 10%);
+    --rhapsody-color-active: rgb(142 124 255 / 16%);
+    --rhapsody-shadow-window: 0 18px 44px -10px rgb(4 5 10 / 42%);
+    --rhapsody-shadow-focus: 0 0 0 1px rgb(142 124 255 / 44%), 0 0 18px rgb(107 92 242 / 16%);
+}
+
+body.rhapsody-enabled[data-rhapsody-theme="aubade"] {
+    color-scheme: light;
+    --rhapsody-color-canvas: #f4f1ea;
+    --rhapsody-color-surface-root: #ebeef1;
+    --rhapsody-color-surface-panel: #faf9f5;
+    --rhapsody-color-surface-elevated: #ffffff;
+    --rhapsody-color-text-primary: #272a31;
+    --rhapsody-color-text-secondary: #646b76;
+    --rhapsody-color-text-muted: #9298a0;
+    --rhapsody-color-border-subtle: #d8dde3;
+    --rhapsody-color-border-strong: #b9c1cc;
+    --rhapsody-color-accent-primary: #497b9a;
+    --rhapsody-color-accent-secondary: #8a6f9b;
+    --rhapsody-color-accent-gold: #b18442;
+    --rhapsody-color-status-success: #4d8d73;
+    --rhapsody-color-overlay-dim: #272a3166;
+    --rhapsody-color-selection-background: #497b9a26;
+    --rhapsody-color-input-background: #f8f7f3;
+    --rhapsody-color-focus-ring: rgb(73 123 154 / 34%);
+    --rhapsody-color-hover: rgb(73 123 154 / 9%);
+    --rhapsody-color-active: rgb(73 123 154 / 14%);
+    --rhapsody-shadow-window: 0 18px 44px -12px rgb(40 48 60 / 22%);
+    --rhapsody-shadow-focus: 0 0 0 1px rgb(73 123 154 / 42%), 0 0 18px rgb(73 123 154 / 14%);
+}
+
+body.rhapsody-enabled[data-rhapsody-motion="reduced"],
+body.rhapsody-enabled[data-rhapsody-motion="off"] {
+    --rhapsody-duration-press: 0ms;
+    --rhapsody-duration-fast: 0ms;
+    --rhapsody-duration-standard: 0ms;
+    --rhapsody-duration-structure: 0ms;
+    --rhapsody-duration-slow: 0ms;
+    --rhapsody-duration-theme: 0ms;
+    --rhapsody-duration-poetic: 0ms;
+    --rhapsody-duration-ambient: 0ms;
+}
+
+body.rhapsody-enabled ::selection {
+    background: var(--rhapsody-color-selection-background);
+}

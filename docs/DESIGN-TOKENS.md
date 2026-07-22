@@ -263,9 +263,13 @@ body.rhapsody-enabled {
 ```css
 body.rhapsody-enabled {
   --rhapsody-duration-instant: 0ms;
+  --rhapsody-duration-press: 80ms;
   --rhapsody-duration-fast: 125ms;
   --rhapsody-duration-standard: 200ms;
+  --rhapsody-duration-structure: 280ms;
   --rhapsody-duration-slow: 360ms;
+  --rhapsody-duration-theme: 420ms;
+  --rhapsody-duration-poetic: 700ms;
   --rhapsody-duration-ambient: 800ms;
 
   --rhapsody-ease-standard: cubic-bezier(0.2, 0, 0, 1);
@@ -278,17 +282,24 @@ body.rhapsody-enabled {
 使用规则：
 
 - Hover、focus、轻量颜色变化：`fast`。
+- 按钮按下：`press`。
 - 面板、设置预览、主题内状态切换：`standard`。
-- 欢迎排版、章节过渡的单次进入：`slow`。
+- 抽屉、popover 与结构变化：`structure`。
+- 主面板与较大范围状态变化：`slow`。
+- 完整主题换色：`theme`；欢迎排版与章节过渡：`poetic`。
 - 环境光色缓慢变化：`ambient`；不能用于高频控件。
 - 禁止给消息滚动、文本输入和持续生成内容增加惯性或延迟。
 
 ```css
 @media (prefers-reduced-motion: reduce) {
   body.rhapsody-enabled {
+    --rhapsody-duration-press: 0ms;
     --rhapsody-duration-fast: 0ms;
     --rhapsody-duration-standard: 0ms;
+    --rhapsody-duration-structure: 0ms;
     --rhapsody-duration-slow: 0ms;
+    --rhapsody-duration-theme: 0ms;
+    --rhapsody-duration-poetic: 0ms;
     --rhapsody-duration-ambient: 0ms;
   }
 }
@@ -304,21 +315,12 @@ body.rhapsody-enabled {
 body.rhapsody-enabled {
   --rhapsody-environment-opacity: 0.34;
   --rhapsody-environment-parallax-max: 6px;
-  --rhapsody-environment-dpr-max: 1.5;
-  --rhapsody-environment-active-fps: 30;
+  --rhapsody-environment-dpr-max: 2;
   --rhapsody-environment-particle-scale: 1;
-}
-
-body.rhapsody-enabled[data-rhapsody-performance="low"] {
-  --rhapsody-environment-opacity: 0.2;
-  --rhapsody-environment-parallax-max: 2px;
-  --rhapsody-environment-dpr-max: 1;
-  --rhapsody-environment-active-fps: 20;
-  --rhapsody-environment-particle-scale: 0.45;
 }
 ```
 
-数字型 CSS 变量用于统一配置来源；JavaScript 必须读取、解析并设置上限，不能假定 CSS 会自动限制 WebGL 循环。
+数字型 CSS 变量用于统一配置来源；JavaScript 必须读取、解析并设置上限。环境循环使用原生 `requestAnimationFrame` 跟随显示器刷新率，不提供自动低性能档。
 
 ## 9. 层级规则
 
@@ -367,28 +369,28 @@ body.rhapsody-enabled {
 
 只有当同一语义在至少三个组件中重复出现时，才新增别名。
 
-## 11. 响应式约束
+## 11. 桌面视口约束
 
-断点不是视觉主题的一部分，但实现必须遵循以下降级顺序：
+Rhapsody 只面向桌面浏览器，不建立手机和平板布局。
 
-### 宽屏：`>= 1280px`
+### 宽屏桌面：`>= 1440px`
 
 - 使用完整工作区留白。
 - 可显示原生可安全适配的辅助区域。
-- OGL 可使用标准性能档。
+- OGL 使用完整质量。
 
-### 紧凑桌面：`769–1279px`
+### 紧凑桌面：`1280–1439px`
 
 - 缩小外壳边距和面板间距。
 - 优先保留聊天与输入区；辅助预览折叠。
 - 不压缩正文到小于约 `560px` 的舒适阅读宽度。
+- 不降低环境效果画质。
 
-### 移动与窄屏：`<= 768px`
+### 范围之外：`< 1280px` 或高度 `< 720px`
 
-- 外壳回到全视口，无悬浮窗口边距。
-- 不使用固定侧栏或上下文栏。
-- 默认关闭 WebGL 环境层，保留静态 CSS 光场。
-- 所有原生抽屉、发送按钮和弹窗保持可达。
+- 不进入 Rhapsody 视觉验收。
+- 不实现手机断点和触摸优先重排。
+- 实验性工作区布局应停止应用，避免阻断 SillyTavern 原生功能。
 
 ## 12. 无障碍约束
 
@@ -396,7 +398,7 @@ body.rhapsody-enabled {
 - `text-muted` 不用于必须读取的正文、表单值或唯一状态说明。
 - Focus 不只依赖光晕；必须有可见轮廓。
 - 开关状态必须同时有文字或结构变化，不能只改变颜色。
-- 触控目标不得小于 SillyTavern 原有可点击范围；Rhapsody 不通过视觉缩小减少命中区。
+- 桌面点击目标不得小于 SillyTavern 原有可点击范围；图标按钮建议至少 `32 × 32px`。
 - 系统 `forced-colors`、`prefers-reduced-motion` 和 `body.no-blur` 优先于装饰效果。
 
 ## 13. 令牌变更流程
@@ -404,7 +406,7 @@ body.rhapsody-enabled {
 1. 先说明变更解决的组件问题，禁止为单张效果图增加孤立色值。
 2. 同时检查 Nocturne 与 Aubade。
 3. 更新 Figma Variables 与本文件。
-4. 对欢迎、会话、设置和移动端至少各做一次回归。
+4. 对欢迎、会话、设置、宽屏桌面和紧凑桌面至少各做一次回归。
 5. 令牌改名属于破坏性变更；在实现阶段需要迁移说明。
 
 ## 14. 实现验收
@@ -414,4 +416,4 @@ body.rhapsody-enabled {
 - 插件关闭后，所有 `--rhapsody-*` 的影响随总开关一起消失。
 - OGL 关闭后，背景、边界、排版和状态仍清晰。
 - 诗性字体没有进入普通消息与设置字段。
-- 缩放到 200% 时，输入、消息、设置和原生抽屉仍可使用。
+- 在缩放后仍满足最低桌面 CSS 视口时，输入、消息、设置和原生抽屉仍可使用。

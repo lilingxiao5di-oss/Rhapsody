@@ -1,0 +1,91 @@
+#rhapsody-settings {
+    --rhapsody-settings-gap: var(--rhapsody-spacing-03, 12px);
+    margin-block: 8px;
+    border: 1px solid var(--rhapsody-color-border-subtle, var(--SmartThemeBorderColor));
+    border-radius: var(--rhapsody-radius-md, 10px);
+    background: var(--rhapsody-color-surface-panel, var(--SmartThemeBlurTintColor));
+    color: var(--rhapsody-color-text-primary, var(--SmartThemeBodyColor));
+    overflow: clip;
+}
+
+#rhapsody-settings .inline-drawer-header {
+    padding: 10px 12px;
+}
+
+#rhapsody-settings .rhapsody-settings__content {
+    display: grid;
+    gap: var(--rhapsody-settings-gap);
+    padding: 0 12px 12px;
+}
+
+#rhapsody-settings .rhapsody-settings__intro {
+    margin: 0;
+    color: var(--rhapsody-color-text-secondary, var(--SmartThemeEmColor));
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+#rhapsody-settings .rhapsody-settings__group {
+    display: grid;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rhapsody-color-border-subtle, var(--SmartThemeBorderColor));
+}
+
+#rhapsody-settings .rhapsody-settings__group h4 {
+    margin: 0;
+    color: var(--rhapsody-color-text-secondary, var(--SmartThemeEmColor));
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+#rhapsody-settings .rhapsody-settings__row,
+#rhapsody-settings .rhapsody-settings__field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 38px;
+    margin: 0;
+}
+
+#rhapsody-settings .rhapsody-settings__row > span {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+}
+
+#rhapsody-settings .rhapsody-settings__row small,
+#rhapsody-settings .rhapsody-settings__status small {
+    color: var(--rhapsody-color-text-secondary, var(--SmartThemeEmColor));
+    line-height: 1.4;
+}
+
+#rhapsody-settings .rhapsody-settings__field select {
+    width: min(190px, 50%);
+    margin: 0;
+}
+
+#rhapsody-settings .rhapsody-settings__status {
+    display: grid;
+    gap: 4px;
+    padding: 10px;
+    border-radius: var(--rhapsody-radius-sm, 6px);
+    background: var(--rhapsody-color-selection-background, rgb(128 128 128 / 12%));
+}
+
+#rhapsody-settings .rhapsody-settings__status > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#rhapsody-settings [data-rhapsody-status="core"][data-state="ok"] {
+    color: var(--rhapsody-color-status-success, var(--SmartThemeUnderlineColor));
+}
+
+#rhapsody-settings [data-rhapsody-status="core"][data-state="warning"] {
+    color: var(--rhapsody-color-accent-gold, var(--SmartThemeQuoteColor));
+}

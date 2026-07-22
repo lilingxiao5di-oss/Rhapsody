@@ -1,0 +1,10 @@
+{
+  "name": "rhapsody-sillytavern-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Desktop visual extension for SillyTavern",
+  "scripts": {
+    "test": "node --test"
+  }
+}

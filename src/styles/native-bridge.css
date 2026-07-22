@@ -1,0 +1,17 @@
+body.rhapsody-enabled[data-rhapsody-native-bridge="on"] {
+    --SmartThemeBodyColor: var(--rhapsody-color-text-primary);
+    --SmartThemeEmColor: var(--rhapsody-color-text-secondary);
+    --SmartThemeUnderlineColor: var(--rhapsody-color-status-success);
+    --SmartThemeQuoteColor: var(--rhapsody-color-accent-gold);
+    --SmartThemeBlurTintColor: var(--rhapsody-color-surface-root);
+    --SmartThemeChatTintColor: var(--rhapsody-color-surface-root);
+    --SmartThemeUserMesBlurTintColor: var(--rhapsody-color-selection-background);
+    --SmartThemeBotMesBlurTintColor: var(--rhapsody-color-surface-panel);
+    --SmartThemeBorderColor: var(--rhapsody-color-border-subtle);
+    --SmartThemeShadowColor: transparent;
+    --mainFontFamily: var(--rhapsody-font-family-ui);
+}
+
+body.rhapsody-enabled.no-blur {
+    --SmartThemeBlurStrength: 0px;
+}

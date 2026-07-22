@@ -1,0 +1,19 @@
+{
+  "display_name": "Rhapsody",
+  "loading_order": 100,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "lilingxiao5di-oss",
+  "version": "0.1.0",
+  "minimum_client_version": "1.18.0",
+  "homePage": "https://github.com/lilingxiao5di-oss/Rhapsody",
+  "auto_update": true,
+  "hooks": {
+    "activate": "init",
+    "disable": "disable",
+    "clean": "clean",
+    "delete": "uninstall"
+  }
+}

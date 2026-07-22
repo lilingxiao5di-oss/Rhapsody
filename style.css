@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@layer rhapsody.tokens, rhapsody.bridge, rhapsody.settings;
+
+@import url("./src/styles/tokens.css") layer(rhapsody.tokens);
+@import url("./src/styles/native-bridge.css") layer(rhapsody.bridge);
+@import url("./src/styles/settings.css") layer(rhapsody.settings);
+
+/*
+ * Runtime stylesheet entry point.
+ * Kimi can add workspace, message, composer, popup and environment layers here
+ * without expanding manifest.json or creating a build step prematurely.
+ */
